@@ -29,11 +29,10 @@ namespace CarRent
             {
                 Menu formMenu = new Menu();
                 formMenu.Show();
-
+                Visible = false;
+                
             }
 
-        }
-
-       
+        }   
     }
 }
