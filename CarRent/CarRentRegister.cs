@@ -103,10 +103,10 @@ namespace CarRent
 
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into CarRent values('" + clientIdTextBox.Text + "' , '" +
+                    cmd.CommandText = "insert into CarRentRegister values('" + clientIdTextBox.Text + "' , '" +
                     carModelTextBox.Text + "' , '" + startDateTextBox.Text + "' , '" + endDateTextBox.Text + "', '" + cityTextBox.Text + "')";
 
-                    //  cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
                     Close();
 
