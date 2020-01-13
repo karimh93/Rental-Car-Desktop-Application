@@ -15,12 +15,14 @@ namespace CarRent
 {
     public partial class RegisterCustomer : Form
     {
+        
+        DataSet ds = new DataSet();
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=CarRent;Integrated Security=True");
+
         public RegisterCustomer()
         {
             InitializeComponent();
         }
-
-        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=CarRent;Integrated Security=True");
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
@@ -67,10 +69,47 @@ namespace CarRent
                 Console.WriteLine("Please introduce a Zip Code with 5 characters");
             }
 
+            else
+            {
+
+                
+                SqlCommand firstCommand = new SqlCommand("Select * FROM Customers WHERE Name = '" + clientNameTextBox.Text + "'", con);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(firstCommand);
+                dataAdapter.Fill(ds);
+                
+                int i = ds.Tables[0].Rows.Count;
+
+                
+
+                if (i > 0)
+                {
+                    MessageBox.Show("The customer already exists.");
+                    ds.Clear();
+                }
+                else
+                {
+
+                    SqlCommand secondCommand = con.CreateCommand();
+                    secondCommand.CommandType = CommandType.Text;
+                    secondCommand.CommandText = "insert into Customers values('" + clientNameTextBox.Text + "' , '" +
+                                             birthDateTextBox.Text + "' , '" + locationTextBox.Text + "')";
+
+                    secondCommand.ExecuteNonQuery();
+
+                    Close();
+
+                    Menu form = new Menu();
+                    form.Show();
+                }
+            }
+
+            con.Close();
 
         }
 
+    }
+
 
     }
-}
+
 
