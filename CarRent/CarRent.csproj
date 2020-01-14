@@ -108,6 +108,9 @@
     <EmbeddedResource Include="CarRentRegister.resx">
       <DependentUpon>CarRentRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarRentUpdate.resx">
+      <DependentUpon>CarRentUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
