@@ -146,6 +146,7 @@
             this.updateCarBtn.TabIndex = 11;
             this.updateCarBtn.Text = "Update Car";
             this.updateCarBtn.UseVisualStyleBackColor = true;
+            this.updateCarBtn.Click += new System.EventHandler(this.UpdateCarBtn_MouseClick);
             // 
             // carRentIDLabel
             // 

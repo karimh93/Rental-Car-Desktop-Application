@@ -33,7 +33,7 @@ namespace CarRent
 
         }
 
-        private void RegisterCarBtn_MouseClick(object sender, EventArgs e)
+        private void UpdateCarBtn_MouseClick(object sender, EventArgs e)
         {
             Regex regex = new Regex(@"(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)
             (?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?
@@ -77,7 +77,7 @@ namespace CarRent
             else
             {
                 SqlCommand firstCommand = con.CreateCommand();
-                firstCommand.CommandText = "Select * from CarRent where CarRentID = '" + carRentIDTextBox.Text + "'";
+                firstCommand.CommandText = "Select * from CarRentRegister where CarRentID = '" + carRentIDTextBox.Text + "'";
                 firstCommand.Parameters.AddWithValue("@CarRentID", carRentIDTextBox.Text);
                 SqlDataAdapter firstDataAdapter = new SqlDataAdapter(firstCommand);
                 DataTable firstDataTable = new DataTable();
@@ -93,25 +93,24 @@ namespace CarRent
                 secondDataAdapter.Fill(secondDataTable);
 
 
-            
                 SqlCommand thirdCommand = con.CreateCommand();
                 thirdCommand.CommandText = "Select * from Cars where Model = '" + carModelTextBox.Text + "'";
                 thirdCommand.Parameters.AddWithValue("@Model", carModelTextBox.Text);
                 SqlDataAdapter thirdDataAdapter = new SqlDataAdapter(thirdCommand);
                 DataTable thirdDataTable = new DataTable();
                 thirdDataAdapter.Fill(thirdDataTable);
-
-
                
+
                 SqlCommand fourthCommand = con.CreateCommand();
-                fourthCommand.CommandText = "Select * from Cars where Model = '" + carModelTextBox.Text + "'";
-                fourthCommand.Parameters.AddWithValue("@Model", carModelTextBox.Text);
+                fourthCommand.CommandText = "Select * from Customers where Location = '" + cityTextBox.Text + "'";
+                fourthCommand.Parameters.AddWithValue("@Location", cityTextBox.Text);
                 SqlDataAdapter fourthDataAdapter = new SqlDataAdapter(fourthCommand);
                 DataTable fourthDataTable = new DataTable();
                 fourthDataAdapter.Fill(fourthDataTable);
 
 
-                if (firstDataTable.Rows.Count > 0 && secondDataTable.Rows.Count > 0 && thirdDataTable.Rows.Count > 0 && fourthDataTable.Rows.Count>0)
+                if (firstDataTable.Rows.Count > 0 && secondDataTable.Rows.Count > 0 && thirdDataTable.Rows.Count > 0
+                    && fourthDataTable.Rows.Count>0 )
                 {
 
                     SqlCommand cmd = con.CreateCommand();

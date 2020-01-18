@@ -105,11 +105,20 @@
     <Compile Include="RentList.Designer.cs">
       <DependentUpon>RentList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AvailableCarList.resx">
+      <DependentUpon>AvailableCarList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarRentRegister.resx">
       <DependentUpon>CarRentRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarRentUpdate.resx">
       <DependentUpon>CarRentUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerList.resx">
+      <DependentUpon>CustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerUpdate.resx">
+      <DependentUpon>CustomerUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -128,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterCustomer.resx">
       <DependentUpon>RegisterCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentList.resx">
+      <DependentUpon>RentList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
